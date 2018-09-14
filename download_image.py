@@ -4,6 +4,11 @@ import requests.auth
 import datetime
 
 
+secret = 'secret'
+client_id = 'cid'
+password = 'paswd'
+username = 'username'
+
 client_auth = requests.auth.HTTPBasicAuth(client_id,secret)
 post_data = {"grant_type":"password","username":username,"password":password}
 headers = {"User-Agent":"picture_browser"}
