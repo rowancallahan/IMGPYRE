@@ -4,10 +4,10 @@ import requests.auth
 import datetime
 
 
-secret = 'Vr_aWZew-DwlvlxjqGAU6MVkxMQ'
-client_id = '7ZHlRisLGdodWA'
-password = 'arthur-ttl-thing-bezel-sock-hagen-kodak-nile-leap-bent'
-username = 'mayonaisseisspicy'
+secret = 'secret'
+client_id = 'cid'
+password = 'paswd'
+username = 'username'
 
 client_auth = requests.auth.HTTPBasicAuth(client_id,secret)
 post_data = {"grant_type":"password","username":username,"password":password}
