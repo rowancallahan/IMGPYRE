@@ -18,7 +18,7 @@ with open("passwords.yml", 'r') as stream:
     username = data_loaded['username'] 
 
 
-
+#put together our client authorization
 client_auth = requests.auth.HTTPBasicAuth(client_id,secret)
 post_data = {"grant_type":"password","username":username,"password":password}
 headers = {"User-Agent":"picture_browser"}
@@ -30,8 +30,6 @@ access_token = 'bearer '+ response_dict['access_token']
 
 #now lets start accessing some of the data that we have set up to grant acess to 
 access_headers = {"Authorization":access_token,"User-Agent":"picture_browser"}
-
-
 response=requests.get('https://oauth.reddit.com/r/EarthPorn/top/',headers=access_headers)
 
 #now lets try and start looking at the html and see if we can pull out some of the pictures
