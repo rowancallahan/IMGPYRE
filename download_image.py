@@ -2,12 +2,22 @@ import re
 import requests
 import requests.auth
 import datetime
+import yaml
 
 
-secret = 'secret'
-client_id = 'cid'
-password = 'paswd'
-username = 'username'
+secret = ''
+client_id = ''
+password = ''
+username = ''
+
+with open("passwords.yml", 'r') as stream:
+    data_loaded=yaml.load(stream)
+    secret = data_loaded['secret']
+    client_id = data_loaded['client_id']
+    password = data_loaded['password']
+    username = data_loaded['username'] 
+
+
 
 client_auth = requests.auth.HTTPBasicAuth(client_id,secret)
 post_data = {"grant_type":"password","username":username,"password":password}
