@@ -10,7 +10,7 @@ client_id = ''
 password = ''
 username = ''
 
-with open("passwords.yml", 'r') as stream:
+with open("/home/rowan2/Projects/IMGPYR/passwords.yml", 'r') as stream:
     data_loaded=yaml.load(stream)
     secret = data_loaded['secret']
     client_id = data_loaded['client_id']
@@ -45,7 +45,6 @@ def get_image(number_in_page):
 
     height_setting = 1440 
     width_setting = 2560 
-    image_name = re.search('.*.jpg',url).group(0)
     
     d = response.json()['data']['children'][number_in_page]['data']['preview']['images']
     
@@ -53,7 +52,7 @@ def get_image(number_in_page):
     if height>height_setting and width>width_setting:
         print('successful size')
         image_request = requests.get(url, stream=True)
-        with open(str(date_string+str(number_in_page)+'.jpg'),'wb') as imagefile:
+        with open('/home/rowan2/Projects/IMGPYR/'+str(date_string+str(number_in_page)+'.jpg'),'wb') as imagefile:
             for chunk in image_request:
                 imagefile.write(chunk)
     else:
